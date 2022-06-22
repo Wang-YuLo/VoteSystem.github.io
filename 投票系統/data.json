@@ -1,0 +1,19 @@
+{
+    "data": {
+        "B09605000": {
+            "name": "test",
+            "password": "00000000"
+        },
+        "B09605029": {
+            "name": "\u9ad8\u5b87\u98ba",
+            "password": "KyDmL6AY7dVa"
+        }
+    },
+    "vote": {
+        "No.1": 0,
+        "No.2": 0
+    },
+    "password": [
+        "00000000"
+    ]
+}

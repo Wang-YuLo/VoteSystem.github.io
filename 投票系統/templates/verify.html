@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            投票系統
+        </title>
+        <style type="text/css">
+        body{
+            font-size: 16px;font-family: "微軟正黑體";
+            }
+
+        </style>
+        <script type="text/javascript">
+            function signcheck(){
+                var x=document.getElementById(id="id").value;
+                var y=document.getElementById(id="password").value;
+                
+            };
+            function imagecheck(){
+                const fileUploader = document.getElementById('img');
+                fileUploader.addEventListener('change', (event) => {
+                const files = event.target.files;
+                console.log('files', files);
+                });
+
+                
+            };
+            
+        </script>
+    </head>
+    <body>
+        <div>
+            <h2 style="font: size 30px;">驗證</h2>
+        </div>
+        <div>
+            <h6 style="font: size 10px;">為確保您為國立台灣大學森林環境暨資源學系之大學部在學學生，請提供以下資料
+            </h6>
+        </div>
+        <div>
+            {% if value == "0" %}
+            <form method='post' action="/submit" enctype="multipart/form-data">
+                <h4>姓名 : <input name="name" required></h4>
+                <h4>學號 : <input name="id" required></h4>
+                <h4>學生證正面 : <input type="file"  name="img" accept=".jpg, .png" required></h4>
+                <input type="submit" value="送出" name="send">
+            </form>
+            {% elif value == "1" %}
+            <p>驗證成功</p>
+            <p>您的金鑰為 : {{passw}}</p>
+            <p><a href="vote.html">點此進入投票</a></p>
+            {% elif value == "2" %}
+            <p>驗證失敗，或已經投過票</p>
+            <p><a href="verify.html">點此返回</a></p>
+            {% endif %}
+        </div>
+    </body>
+</html>

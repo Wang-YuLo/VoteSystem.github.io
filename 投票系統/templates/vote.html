@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            投票系統
+        </title>
+        <style type="text/css">
+        body{
+            font-size: 16px;font-family: "微軟正黑體";
+            }
+
+        </style>
+        <script type="text/javascript">
+            function signcheck(){
+                var x=document.getElementById(id="id").value;
+                var y=document.getElementById(id="password").value;
+                
+            };
+            function imagecheck(){
+                const fileUploader = document.getElementById('img');
+                fileUploader.addEventListener('change', (event) => {
+                const files = event.target.files;
+                console.log('files', files);
+                });
+
+                
+            };
+            
+        </script>
+    </head>
+    <body>
+        <div>
+            <h2 style="font: size 30px;">投票</h2>
+        </div>
+        <div>
+            <h6 style="font: size 10px;">
+            </h6>
+        </div>
+        <div>
+            {% if voted == "0" %}
+            <form method='post' action="/vote">
+                <h4>密鑰 : <input name="pass" required></h4>
+                請選擇一組候選人<br><br>
+                <input type="radio" name="people" value="1">1<br>
+                <input type="radio" name="people" value="2">2<br>
+                <input type="submit" value="確認投票" name="send">
+            </form>
+            {% elif voted == "1" %}
+            <p>投票成功</p>
+            <p>請關閉離開頁面</p>
+            {% elif voted == "2" %}
+            <p>已經投過票了，無法再進行投票</p>
+            <p>請關閉離開頁面</p>
+            {% endif %}
+
+        </div>
+    </body>
+</html>
